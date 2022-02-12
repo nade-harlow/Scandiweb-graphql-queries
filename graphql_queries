@@ -1,0 +1,67 @@
+#  Get Product by ID
+query {
+  product(id: "apple-iphone-12-pro") {
+    name
+    brand
+    prices {
+      currency {
+        label
+        symbol
+      }
+      amount
+    }
+    attributes {
+      name
+      type
+      items {
+        displayValue
+        value
+      }
+    }
+    category
+    gallery
+  }
+}
+
+#Get All products through categories
+query {
+  categories {
+    name
+    products {
+      id
+      name
+      inStock
+      gallery
+      description
+      category
+      prices {
+        currency {
+          label
+          symbol
+        }
+        amount
+      }
+      brand
+    }
+  }
+}
+
+# Get products by category
+query {
+  category(input: { title: "clothes" }) {
+    name
+    products {
+      name
+      inStock
+      category
+    }
+  }
+}
+
+# Get all currencies
+query {
+  currencies {
+    label
+    symbol
+  }
+}
